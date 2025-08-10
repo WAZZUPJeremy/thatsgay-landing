@@ -2,4 +2,54 @@
 @tailwind components;
 @tailwind utilities;
 
-html, body, :root { height: 100%; }
+/* === Brand tokens & utilities (thatsgay?) === */
+:root{
+  --ink:#0D0F14; --cloud:#F3F5F7; --pink:#FF2DA1; --blue:#2D7BFF; --lime:#CCFF00; --purple:#8B5CFF;
+  --yellow:#FFD400; --peach:#FF8A5B; --teal:#26E0C8;
+}
+.bg-ink{ background: var(--ink); }
+.text-cloud{ color: var(--cloud); }
+.font-display{ font-family: "Space Grotesk", Poppins, system-ui, sans-serif; }
+.font-sans{ font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; }
+
+.btn-primary{ background: var(--pink); color: var(--ink); border-radius: 9999px; padding: .875rem 1.25rem; font-weight: 700; }
+.btn-primary:hover{ filter: brightness(1.05); box-shadow: 0 0 0 6px rgba(255,45,161,.25); }
+.btn-ghost{ border:1px solid rgba(243,245,247,.15); border-radius:9999px; padding:.875rem 1.25rem; }
+
+.badge{ border:1px solid rgba(255,255,255,.2); border-radius:9999px; padding:.35rem .7rem; font-size:.8rem; }
+.card{ background: #0F1219; border-radius:24px; box-shadow: 0 6px 24px -8px rgba(13,15,20,.25); }
+.tag{ border:1px solid rgba(13,15,20,.24); border-radius:9999px; padding:.375rem .75rem; font-size:.875rem; }
+
+.unicorn-text{ background: linear-gradient(90deg, var(--pink), var(--blue), var(--lime)); -webkit-background-clip:text; background-clip:text; color: transparent; }
+.night-pop{
+  background:
+    radial-gradient(80rem 60rem at 20% -10%, rgba(255,45,161,.25), transparent 40%),
+    radial-gradient(60rem 40rem at 100% 0%, rgba(45,123,255,.25), transparent 35%),
+    radial-gradient(50rem 40rem at 0% 100%, rgba(204,255,0,.15), transparent 40%),
+    var(--ink);
+}
+
+.section{ padding: 6rem 1rem; }
+@media (min-width: 1024px){ .section{ padding: 8rem 0; } }
+
+/* simple separator bar instead of SVG wave to avoid escaping issues */
+.section-wave-top{ position:relative; }
+.section-wave-top::before{
+  content:""; position:absolute; inset-inline:0; top:-1px; height:12px;
+  background: linear-gradient(90deg, rgba(255,45,161,.35), rgba(45,123,255,.35), rgba(204,255,0,.25));
+  filter: blur(8px); opacity:.8;
+}
+.gradient-bar{ background: linear-gradient(90deg, var(--pink), var(--blue), var(--lime), var(--purple)); }
+
+/* Floating stickers */
+.sticker { filter: drop-shadow(0 10px 30px rgba(0,0,0,.35)); }
+.float-slow { animation: float 6s ease-in-out infinite; }
+.float-mid  { animation: float 5s ease-in-out infinite; }
+.float-fast { animation: float 4s ease-in-out infinite; }
+@keyframes float{ 0%{transform:translateY(0)} 50%{transform:translateY(-10px)} 100%{transform:translateY(0)} }
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce){
+  *{ animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important; scroll-behavior:auto !important; }
+}
+
