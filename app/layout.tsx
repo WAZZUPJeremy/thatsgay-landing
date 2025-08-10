@@ -1,6 +1,6 @@
 import "./globals.css";
 export const metadata = {
-  metadataBase: new URL("https://ton-domaine-ou-vercel-url.app"),
+  metadataBase: new URL("https://thatsgay-landing.vercel.app/"),
   title: "thatsgay? — Le débat le plus bête (et le plus drôle)",
   description:
     "Une app fun & second degré pour débattre entre potes : est-ce que c'est gay ? On rit avec les gens, pas des gens.",
